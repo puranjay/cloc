@@ -26,6 +26,9 @@ public class cloc{
 		try (Scanner inp = new Scanner(System.in)) {
 			System.out.print("Please enter the name of the file:	");
 			filename = inp.nextLine();
+		} catch (NullPointerException e) {
+			System.out.println("No file name was entered.");
+			return;
 		}
 
 		try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
