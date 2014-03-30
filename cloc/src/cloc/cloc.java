@@ -23,9 +23,6 @@ public class cloc {
 		try (Scanner inp = new Scanner(System.in)) {
 			System.out.print("Please enter the name of the file:	");
 			filename = inp.nextLine();
-		} catch (NullPointerException e) {
-			System.out.println("No file name was entered.");
-			return;
 		}
 
 		/* Use Buffered Reader to read the input file line by line*/
@@ -59,8 +56,8 @@ public class cloc {
 						codelines++;
 				}
 			}
-		} catch (FileNotFoundException e) {
-			System.out.println("\nThe file could not be found. Please check the name and try again.");
+		} catch (IOException e) {
+			System.out.println("\nThe file could not be read because the following exception was encountered: \n " + e);
 			return;
 		}
 
